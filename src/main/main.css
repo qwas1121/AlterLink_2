@@ -1,0 +1,112 @@
+#main {
+  width: 100%;
+  height: auto;
+  background: url(./img/test.jpg) no-repeat;
+  background-size: 100% auto;
+  background-position: top;
+  position: relative;
+  overflow: hidden;
+}
+#main .blackBg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, #191919 100%);
+  z-index: 5;
+}
+
+#main .img_wrap img {
+  position: absolute;
+  object-fit: contain;
+}
+#main .img_wrap .wall {
+  width: 1153px;
+  left: 40px;
+  top: -340px;
+}
+#main .img_wrap .leftObj {
+  width: 642px;
+  left: -11px;
+  top: -82px;
+  z-index: 2;
+}
+#main .img_wrap .rightObj {
+  width: 1257px;
+  right: -40px;
+  top: -320px;
+  z-index: 2;
+}
+#main .img_wrap .floor {
+  width: 126%;
+  left: -13%;
+  bottom: -180px;
+}
+
+#section01 {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 5;
+}
+#section01 .logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 906.6px;
+  object-fit: contain;
+}
+#section02 {
+  padding: 250px 0 90px;
+  position: relative;
+  z-index: 6;
+}
+#section02 p {
+  font-size: 37px;
+  color: #d6d6d6;
+  text-align: center;
+  line-height: 1.46;
+  font-weight: 100;
+  letter-spacing: -1.11px;
+}
+#section02 p span {
+  font-weight: 500;
+}
+
+#section03 {
+  padding: 200px 0;
+  background: #191919;
+}
+#section03 .force {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: red;
+}
+#section03 .text_wrap {
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#section03 .text_wrap .visible {
+  visibility: hidden;
+}
+#section03 .text_wrap .hidden {
+  visibility: visible;
+}
+#section03 .peopleImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#section03 .force img {
+  width: 100%;
+}
+#section03 .atman .peopleImg {
+  width: 685px;
+}
