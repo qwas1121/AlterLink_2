@@ -94,12 +94,12 @@ const Main: React.FC = () => {
             style={{
               transform: `translate(${pos.x / 10}px, ${pos.y / 30}px)`,
             }}
-            src="/img/main/left_obj.png"
+            src="./img/main/left_obj.png"
             alt=""
             className="leftObj"
           />
           <img
-            src="/img/main/right_obj.png"
+            src="./img/main/right_obj.png"
             alt=""
             className="rightObj"
             style={{
@@ -109,7 +109,7 @@ const Main: React.FC = () => {
             }}
           />
           <img
-            src="/img/main/floor.png"
+            src="./img/main/floor.png"
             alt=""
             className="floor"
             style={{
@@ -118,7 +118,7 @@ const Main: React.FC = () => {
           />
         </div>
         <div id="section01">
-          <img src="/img/main/logo.png" alt="AlterLink" className="logo" />
+          <img src="./img/main/logo.png" alt="AlterLink" className="logo" />
         </div>
         <div id="section02">
           <p>
@@ -136,11 +136,11 @@ const Main: React.FC = () => {
         <div className="force atman">
           <div className="text_wrap">
             <div ref={myDiv} className={!isVisible ? "visible" : "hidden"}>
-              <img src="/img/main/atman_text01.png" alt="" />
+              <img src="./img/main/atman_text01.png" alt="" />
             </div>
           </div>
           <div className="peopleImg">
-            <img src="/img/main/atman_people.png" alt="" />
+            <img src="./img/main/atman_people.png" alt="" />
           </div>
         </div>
       </div>
