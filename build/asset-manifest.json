@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/AlterLink/static/css/main.dea4200a.css",
+    "main.js": "/AlterLink/static/js/main.9e422b83.js",
+    "static/js/787.c1112931.chunk.js": "/AlterLink/static/js/787.c1112931.chunk.js",
+    "static/media/test.jpg": "/AlterLink/static/media/test.0b0cb17e00c974605828.jpg",
+    "index.html": "/AlterLink/index.html",
+    "main.dea4200a.css.map": "/AlterLink/static/css/main.dea4200a.css.map",
+    "main.9e422b83.js.map": "/AlterLink/static/js/main.9e422b83.js.map",
+    "787.c1112931.chunk.js.map": "/AlterLink/static/js/787.c1112931.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dea4200a.css",
+    "static/js/main.9e422b83.js"
+  ]
+}
