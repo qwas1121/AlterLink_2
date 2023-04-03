@@ -1,7 +1,28 @@
+body {
+  background: #191919;
+}
+img {
+  width: 100%;
+}
+
+.sec_inner {
+  width: 80%;
+  margin: 0 auto;
+}
+.height100 {
+  height: 100vh;
+  position: relative;
+}
+.height100 .sec_inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 #main {
   width: 100%;
   height: auto;
-  background: url(./img/test.jpg) no-repeat;
+  /* background: url(./img/test.jpg) no-repeat; */
   background-size: 100% auto;
   background-position: top;
   position: relative;
@@ -22,26 +43,14 @@
   object-fit: contain;
 }
 #main .img_wrap .wall {
-  width: 1153px;
-  left: 40px;
-  top: -340px;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
-#main .img_wrap .leftObj {
-  width: 642px;
-  left: -11px;
-  top: -82px;
-  z-index: 2;
-}
-#main .img_wrap .rightObj {
-  width: 1257px;
-  right: -40px;
-  top: -320px;
-  z-index: 2;
-}
-#main .img_wrap .floor {
-  width: 126%;
-  left: -13%;
-  bottom: -180px;
+#main .img_wrap .move_img {
+  width: 120%;
+  left: -10%;
+  top: 0;
 }
 
 #section01 {
@@ -92,6 +101,24 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+#section03 .text_wrap p {
+  font-family: "Impact Regular";
+  font-family: Impact;
+  -webkit-text-stroke: 1px #d15eb1;
+  font-size: 248px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: center;
+  color: transparent;
+  text-transform: uppercase;
+}
+#section03 .text_wrap p span {
+  display: inline-block;
+  margin: 0 -10px;
+}
 #section03 .text_wrap .visible {
   visibility: hidden;
 }
@@ -104,9 +131,164 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-#section03 .force img {
-  width: 100%;
-}
 #section03 .atman .peopleImg {
   width: 685px;
+}
+#section03 .peopleStory {
+  margin-top: 155px;
+}
+#section03 .peopleStory .line {
+  margin: 16px 0 34px;
+}
+#section03 .peopleStory li {
+  float: left;
+  width: 50%;
+}
+#section03 .peopleStory li:first-child {
+  text-align: right;
+  padding-right: 26px;
+  position: relative;
+}
+#section03 .peopleStory li:first-child::before {
+  content: "";
+  width: 1px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#section03 .peopleStory li:last-child {
+  text-align: left;
+  padding-left: 26px;
+}
+#section03 .peopleStory li h3 {
+  font-size: 25px;
+  color: #727272;
+  font-weight: 900;
+  letter-spacing: -0.75px;
+}
+#section03 .peopleStory li p {
+  font-size: 23px;
+  color: #727272;
+  font-weight: 100;
+  letter-spacing: -0.69px;
+}
+#section03 .peopleStory.atman h2 {
+  width: 342px;
+  text-align: center;
+  margin: 0 auto;
+}
+/* 
+#section04 {
+  padding-top: 320px;
+  
+} */
+
+#section04 .text_wrap {
+  text-align: right;
+}
+#section04 .num {
+  font-family: "Bai Jamjuree", sans-serif;
+  font-size: 258px;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.59;
+  letter-spacing: -7.74px;
+  color: #fff;
+}
+#section04 h3 {
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 1.58;
+  letter-spacing: -0.78px;
+  color: #afafaf;
+}
+#section04 p {
+  font-size: 26px;
+  font-weight: 100;
+  color: #727272;
+  line-height: 1.58;
+  letter-spacing: -0.78px;
+  display: inline-block;
+  position: relative;
+  margin-top: 36px;
+  padding-top: 36px;
+}
+#section04 p span {
+  font-weight: bold;
+  color: #afafaf;
+}
+#section04 p::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #707070;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* #section05 ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+} */
+
+/* #section05 {
+  position: relative;
+  height: 100vh;
+} */
+#section05::before {
+  content: "";
+  width: 100%;
+  height: 370px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(25, 25, 25, 0) -1%,
+    #191919 85%
+  );
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+#section05 ul li {
+  width: 23.5%;
+  float: left;
+  margin-right: 2%;
+}
+#section05 ul li:nth-child(1),
+#section05 ul li:nth-child(3) {
+  /* width: 24.8%; */
+  /* margin: 0; */
+  padding-top: 57px;
+}
+/* #section05 ul li:nth-child(2) {
+  width: 29.8%;
+}
+#section05 ul li:nth-child(3) {
+  width: 23.4%;
+} */
+#section05 ul li:nth-child(4) {
+  margin: 0;
+}
+
+#section06 {
+}
+
+#section07 {
+  padding-top: 340px;
+}
+#section07 .faq {
+  width: 50%;
+  float: right;
+  color: #fff;
+}
+#section07 .faq h2 {
+  font-family: "Bai Jamjuree", sans-serif;
+  font-size: 115px;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: -3.45px;
+  color: #fff;
 }
