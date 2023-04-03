@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/AlterLink/static/css/main.911f725f.css",
+    "main.js": "/AlterLink/static/js/main.b52b69c5.js",
+    "static/js/787.c1112931.chunk.js": "/AlterLink/static/js/787.c1112931.chunk.js",
+    "static/media/impact.woff": "/AlterLink/static/media/impact.3b4bacc93d783a7c957e.woff",
+    "index.html": "/AlterLink/index.html",
+    "main.911f725f.css.map": "/AlterLink/static/css/main.911f725f.css.map",
+    "main.b52b69c5.js.map": "/AlterLink/static/js/main.b52b69c5.js.map",
+    "787.c1112931.chunk.js.map": "/AlterLink/static/js/787.c1112931.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.911f725f.css",
+    "static/js/main.b52b69c5.js"
+  ]
+}
