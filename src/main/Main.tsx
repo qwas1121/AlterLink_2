@@ -1,20 +1,28 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./main.css";
-
 import Plx from "react-plx";
+import { ReactComponent as SVG } from "./svg.svg";
+import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
+import CountUp from "react-countup";
 
 const Main: React.FC = () => {
-  const boxRef = useRef<HTMLDivElement>(null); // Ref 객체 생성
-
   // scroll 확인
   const [position, setPosition] = useState(0);
   function onScroll() {
     setPosition(window.scrollY);
     console.log(window.scrollY);
   }
-  //scroll event
-  const myDiv = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  //scroll event (styles 텍스트)
+  const textRef = useRef<HTMLDivElement>(null); // Ref 객체 생성
+  const textRef2 = useRef<HTMLDivElement>(null); // Ref 객체 생성
+  const textRef3 = useRef<HTMLDivElement>(null); // Ref 객체 생성
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [scrollPosition2, setScrollPosition2] = useState(0);
+  const [scrollPosition3, setScrollPosition3] = useState(0);
+
+  //숫자 증가
+  const numRef = useRef<HTMLDivElement>(null); // Ref 객체 생성
+  const [num, setNum] = useState(false);
 
   // mousemove event
   let x = 0;
@@ -38,35 +46,50 @@ const Main: React.FC = () => {
     window.requestAnimationFrame(loop);
     setPos({ x: mx, y: my });
   };
-
   useEffect(() => {
     function handleScroll() {
-      if (myDiv.current !== null) {
-        const top = myDiv.current.getBoundingClientRect().top;
-        const bottom = myDiv.current.getBoundingClientRect().bottom;
+      const currentPosition = window.pageYOffset;
+      if (textRef.current !== null) {
+        const wrapTop = textRef.current.offsetTop;
+        setScrollPosition(currentPosition - wrapTop + 700);
+        //setScrollPosition(wrapTop);
+      }
 
-        // 해당 요소가 뷰포트 안에 보이는지 확인
-        if (top >= 0) {
-          setIsVisible(true);
-        } else {
-          setIsVisible(false);
-        }
+      if (textRef2.current !== null) {
+        const wrapTop2 = textRef2.current.offsetTop;
+        setScrollPosition2(currentPosition - wrapTop2 + 700);
+        //setScrollPosition2(wrapTop2);
+      }
+      if (textRef3.current !== null) {
+        const wrapTop3 = textRef3.current.offsetTop;
+        setScrollPosition3(currentPosition - wrapTop3 + 700);
+      }
+
+      //숫자
+      if (
+        numRef.current !== null &&
+        numRef.current.getBoundingClientRect().top < window.innerHeight
+      ) {
+        setNum(true);
+      } else {
+        setNum(false);
       }
     }
+
     //mousemove event
     window.addEventListener("mousemove", handleMouseMove);
     loop();
 
     // scroll event
     window.addEventListener("scroll", onScroll);
-
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("scroll", onScroll); //이거 나중에 지울거
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isVisible]);
+  }, []);
 
   return (
     <>
@@ -89,11 +112,6 @@ const Main: React.FC = () => {
         />
 
         <div className="img_wrap">
-          <img
-            src={process.env.PUBLIC_URL + "/img/main/atman_people.png"}
-            alt="example"
-          />
-
           <img
             src={process.env.PUBLIC_URL + "/img/main/wall.png"}
             alt=""
@@ -128,17 +146,22 @@ const Main: React.FC = () => {
         </div>
       </div>
       <div id="section03">
-        <div className="force atman">
-          <div className="text_wrap">
-            <p>
-              <span>link</span> <span>the</span> <span>styles</span>
-              <br />
-              <span>link</span> <span>the</span> <span>styles</span>
-              <br />
-              <span>link</span> <span>the</span> <span>styles</span>
-            </p>
-            <div ref={myDiv} className={!isVisible ? "visible" : "hidden"}>
-              <img src="./img/main/atman_text01.png" alt="" />
+        {/* atman */}
+        <div ref={textRef} className="force atman height100">
+          <img
+            src={process.env.PUBLIC_URL + "/img/main/forceBg.png"}
+            alt=""
+            className="force_bg"
+          />
+          <div
+            className={`wrap ${
+              scrollPosition >= 0 && scrollPosition < 350 ? "scroll01" : ""
+            } ${
+              scrollPosition >= 350 && scrollPosition < 700 ? "scroll02" : ""
+            } ${scrollPosition >= 700 ? "scroll03" : ""}`}
+          >
+            <div className="text_wrap">
+              <SVG />
             </div>
           </div>
           <div className="peopleImg">
@@ -148,6 +171,7 @@ const Main: React.FC = () => {
             />
           </div>
         </div>
+
         <div className="peopleStory atman">
           <h2>
             <img
@@ -183,16 +207,146 @@ const Main: React.FC = () => {
             </li>
           </ul>
         </div>
+        {/* atman */}
+        {/* looper */}
+        <div ref={textRef2} className="force looper height100">
+          <img
+            src={process.env.PUBLIC_URL + "/img/main/forceBg.png"}
+            alt=""
+            className="force_bg"
+          />
+          <div
+            className={`wrap ${
+              scrollPosition2 >= 0 && scrollPosition2 < 350 ? "scroll01" : ""
+            } ${
+              scrollPosition2 >= 350 && scrollPosition2 < 700 ? "scroll02" : ""
+            } ${scrollPosition2 >= 700 ? "scroll03" : ""}`}
+          >
+            <div className="text_wrap">
+              <SVG />
+            </div>
+          </div>
+          <div className="peopleImg">
+            <img
+              src={process.env.PUBLIC_URL + "/img/main/looper_people.png"}
+              alt=""
+            />
+          </div>
+        </div>
+        <div className="peopleStory looper">
+          <h2>
+            <img
+              src={process.env.PUBLIC_URL + "/img/main/looper_logo.png"}
+              alt=""
+            />
+            <img
+              src={process.env.PUBLIC_URL + "/img/main/looper_logo_line.png"}
+              alt=""
+              className="line"
+            />
+          </h2>
+          <ul className="cf">
+            <li>
+              <h3>Alter</h3>
+              <p>
+                A force that values their own freedom and instincts.
+                <br />
+                They may be self-centered, but they have a personality that is
+                not resistant
+                <br />
+                to doing things that they believe are valuable and enjoyable.
+              </p>
+            </li>
+            <li>
+              <h3>Story</h3>
+              <p>
+                They dream of their own paradise, free from government control.
+                <br />
+                Self-centered, but living together with like-minded people,
+                <br />
+                It is a rebel force of the government, and also a force of
+                opposition to Hide.
+              </p>
+            </li>
+          </ul>
+        </div>
+        {/* looper */}
+        {/* hide */}
+        <div ref={textRef3} className="force hide height100">
+          <img
+            src={process.env.PUBLIC_URL + "/img/main/forceBg.png"}
+            alt=""
+            className="force_bg"
+          />
+          <div
+            className={`wrap ${
+              scrollPosition3 >= 0 && scrollPosition3 < 350 ? "scroll01" : ""
+            } ${
+              scrollPosition3 >= 350 && scrollPosition3 < 700 ? "scroll02" : ""
+            } ${scrollPosition3 >= 700 ? "scroll03" : ""}`}
+          >
+            <div className="text_wrap">
+              <SVG />
+            </div>
+          </div>
+          <div className="peopleImg">
+            <img
+              src={process.env.PUBLIC_URL + "/img/main/hide_people.png"}
+              alt=""
+            />
+          </div>
+        </div>
+        <div className="peopleStory hide">
+          <h2>
+            <img
+              src={process.env.PUBLIC_URL + "/img/main/hide_logo.png"}
+              alt=""
+            />
+            <img
+              src={process.env.PUBLIC_URL + "/img/main/hide_logo_line.png"}
+              alt=""
+              className="line"
+            />
+          </h2>
+          <ul className="cf">
+            <li>
+              <h3>Alter</h3>
+              <p>
+                A machine-wrapped force.
+                <br />
+                Develop your weaknesses more strongly.
+                <br />
+                He is law-abiding, tough, and cold-hearted.
+              </p>
+            </li>
+            <li>
+              <h3>Story</h3>
+              <p>
+                If you enlist in the government’s army, You can make yourself
+                stronger
+                <br />
+                with a better machine, and you can achieve a rise in status.
+                <br />
+                Its main task is to wipe out criminals who do not comply with
+                control.
+              </p>
+            </li>
+          </ul>
+        </div>
+        {/* hide */}
       </div>
       {/* section03 */}
+
       <div id="section04" className="height100">
         <div className="sec_inner">
           <img
             src={process.env.PUBLIC_URL + "/img/main/sec04_top_line.png"}
             alt=""
           />
-          <div className="text_wrap">
-            <h2 className="num">10,000</h2>
+          <div ref={numRef} className="text_wrap">
+            <h2 className="num">
+              {num && <CountUp start={0} end={10000} duration={1} />}
+            </h2>
             <h3>
               A collection of 10,000.
               <br />
