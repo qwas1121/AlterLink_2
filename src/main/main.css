@@ -357,8 +357,55 @@ img {
   margin: 0;
 }
 
-/* #section06 {
-} */
+#section06 #roadmap {
+  width: 100%;
+  height: 300vh;
+
+  position: relative;
+}
+
+#section06 #roadmap .road_wrap {
+  width: 100%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+#section06 #roadmap .circle_wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* width: 500px;
+  height: 500px; */
+  width: 50%;
+  height: 50%;
+}
+#section06 #roadmap .circle_wrap svg {
+  width: 100%;
+  height: 100%;
+}
+#section06 #roadmap .circle_wrap .text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+}
+
+#section06 #roadmap .circle_wrap .text-container h2 {
+  font-family: "Bai Jamjuree", sans-serif;
+  color: #fff;
+  font-size: 146px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+#section06 #roadmap .circle_wrap .text-container p {
+  font-size: 19px;
+  font-weight: 100;
+  color: #727272;
+}
 
 #section07 {
   padding-top: 340px;

@@ -5,6 +5,7 @@ import { ReactComponent as SVG } from "./svg.svg";
 import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 import CountUp from "react-countup";
 
+import RoadMap from "./Roadmap";
 const Main: React.FC = () => {
   // scroll 확인
   const [position, setPosition] = useState(0);
@@ -398,18 +399,8 @@ const Main: React.FC = () => {
         </div>
       </div>
       {/* section05 */}
-      <div id="section06" className="height100">
-        <div className="sec_inner">
-          <img
-            src={process.env.PUBLIC_URL + "/img/main/sec06_top_line.png"}
-            alt=""
-          />
-          <img
-            src={process.env.PUBLIC_URL + "/img/main/sec06_pattern.png"}
-            alt=""
-          />
-        </div>
-      </div>
+      <RoadMap />
+
       {/* section06 */}
       <div id="section07">
         <div className="sec_inner">
