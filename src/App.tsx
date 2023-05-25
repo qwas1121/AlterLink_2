@@ -4,6 +4,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Main from "./main/Main";
 import Test from "./main/Roadmap";
+import Test2 from "./main/test2";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/test" element={<Test />} />
+        <Route path="/test2" element={<Test2 />} />
       </Routes>
     </Router>
   );

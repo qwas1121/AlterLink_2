@@ -13,13 +13,11 @@ const Main: React.FC = () => {
     setPosition(window.scrollY);
     console.log(window.scrollY);
   }
-  //scroll event (styles 텍스트)
-  const textRef = useRef<HTMLDivElement>(null); // Ref 객체 생성
-  const textRef2 = useRef<HTMLDivElement>(null); // Ref 객체 생성
-  const textRef3 = useRef<HTMLDivElement>(null); // Ref 객체 생성
+  //scroll event (force)
+  const forceRef = useRef<HTMLDivElement>(null); // Ref 객체 생성
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [scrollPosition2, setScrollPosition2] = useState(0);
-  const [scrollPosition3, setScrollPosition3] = useState(0);
+  const [scrollClass, setScrollClass] = useState("");
+  const [scrollPercent, setScrollPercent] = useState(0);
 
   //숫자 증가
   const numRef = useRef<HTMLDivElement>(null); // Ref 객체 생성
@@ -49,21 +47,44 @@ const Main: React.FC = () => {
   };
   useEffect(() => {
     function handleScroll() {
-      const currentPosition = window.pageYOffset;
-      if (textRef.current !== null) {
-        const wrapTop = textRef.current.offsetTop;
-        setScrollPosition(currentPosition - wrapTop + 700);
-        //setScrollPosition(wrapTop);
-      }
+      if (!forceRef.current) return;
 
-      if (textRef2.current !== null) {
-        const wrapTop2 = textRef2.current.offsetTop;
-        setScrollPosition2(currentPosition - wrapTop2 + 700);
-        //setScrollPosition2(wrapTop2);
-      }
-      if (textRef3.current !== null) {
-        const wrapTop3 = textRef3.current.offsetTop;
-        setScrollPosition3(currentPosition - wrapTop3 + 700);
+      // const sectionHeight = forceRef.current.offsetHeight;
+      // const scrollPosition = window.pageYOffset - forceRef.current.offsetTop;
+      // const scrollPercent = (scrollPosition / sectionHeight) * 100;
+
+      // setScrollPercent(scrollPercent);
+
+      const sectionTop = forceRef.current.getBoundingClientRect().top;
+      const sectionHeight = forceRef.current.offsetHeight;
+      const viewportHeight = window.innerHeight;
+
+      // 이제 sectionTop은 0 (상단에 도착)부터 -sectionHeight (하단에 도착)까지의 범위를 가집니다.
+      // 이 값을 양수로 변환하고, sectionHeight에 대한 비율을 계산하여 스크롤 퍼센트를 얻습니다.
+      const scrollPosition = -sectionTop;
+      const scrollPercent =
+        (scrollPosition / (sectionHeight - viewportHeight)) * 100;
+
+      setScrollPercent(scrollPercent);
+
+      if (scrollPercent < 11) {
+        setScrollClass("scroll01");
+      } else if (scrollPercent < 22) {
+        setScrollClass("scroll02");
+      } else if (scrollPercent < 33) {
+        setScrollClass("scroll03");
+      } else if (scrollPercent < 44) {
+        setScrollClass("scroll04");
+      } else if (scrollPercent < 55) {
+        setScrollClass("scroll05");
+      } else if (scrollPercent < 66) {
+        setScrollClass("scroll06");
+      } else if (scrollPercent < 77) {
+        setScrollClass("scroll07");
+      } else if (scrollPercent < 88) {
+        setScrollClass("scroll08");
+      } else {
+        setScrollClass("scroll09");
       }
 
       //숫자
@@ -79,6 +100,8 @@ const Main: React.FC = () => {
 
     //mousemove event
     window.addEventListener("mousemove", handleMouseMove);
+
+    //★ 메인에서 벗어나면 중단되게 해야함
     loop();
 
     // scroll event
@@ -95,6 +118,8 @@ const Main: React.FC = () => {
   return (
     <>
       <div id="main">
+        <h1>Are you ready to link?</h1>
+        <div className="blackBg2"></div>
         <Plx
           className="blackBg"
           parallaxData={[
@@ -128,11 +153,18 @@ const Main: React.FC = () => {
           />
         </div>
         <div id="section01">
-          <img
-            src={process.env.PUBLIC_URL + "/img/main/logo.png"}
-            alt="AlterLink"
-            className="logo"
-          />
+          <div className="phone">
+            <img
+              src={process.env.PUBLIC_URL + "/img/main/logo.png"}
+              alt="AlterLink"
+              className="logoImg"
+            />
+            <img
+              src={process.env.PUBLIC_URL + "/img/main/phone.png"}
+              alt=""
+              className="phoneImg"
+            />
+          </div>
         </div>
         <div id="section02">
           <p>
@@ -146,195 +178,111 @@ const Main: React.FC = () => {
           </p>
         </div>
       </div>
-      <div id="section03">
-        {/* atman */}
-        <div ref={textRef} className="force atman height100">
-          <img
-            src={process.env.PUBLIC_URL + "/img/main/forceBg.png"}
-            alt=""
-            className="force_bg"
-          />
-          <div
-            className={`wrap ${
-              scrollPosition >= 0 && scrollPosition < 350 ? "scroll01" : ""
-            } ${
-              scrollPosition >= 350 && scrollPosition < 700 ? "scroll02" : ""
-            } ${scrollPosition >= 700 ? "scroll03" : ""}`}
-          >
-            <div className="text_wrap">
-              <SVG />
-            </div>
+      <div
+        id="section03"
+        ref={forceRef}
+        className={`forceWrap ${scrollClass}
+      ${scrollPercent > 33 ? "looper" : ""}
+      ${scrollPercent > 66 ? "hide" : ""}
+      `}
+      >
+        {/* 아트만 루퍼 하이드*/}
+        <div className="forceWrap">
+          <div className="text_wrap">
+            <SVG />
           </div>
-          <div className="peopleImg">
-            <img
-              src={process.env.PUBLIC_URL + "/img/main/atman_people.png"}
-              alt=""
-            />
-          </div>
-        </div>
 
-        <div className="peopleStory atman">
-          <h2>
+          {/* atman */}
+          <div className="force atman height100">
             <img
-              src={process.env.PUBLIC_URL + "/img/main/atman_logo.png"}
+              src={process.env.PUBLIC_URL + "/img/main/forceBg.png"}
               alt=""
+              className="force_bg"
             />
-            <img
-              src={process.env.PUBLIC_URL + "/img/main/atman_logo_line.png"}
-              alt=""
-              className="line"
-            />
-          </h2>
-          <ul className="cf">
-            <li>
-              <h3>Alter</h3>
-              <p>
-                A force that adapts to rapidly changing environments.
-                <br />
-                They live hiding what they <br />
-                really like and want to do, conscious of society’s gaze
-              </p>
-            </li>
-            <li>
-              <h3>Story</h3>
-              <p>
-                Belong to the government and dream of a stable and high
-                position,
-                <br />
-                There are also Atmans who go over to the power of loopers for
-                <br />
-                their own freedom and dreams.
-              </p>
-            </li>
-          </ul>
-        </div>
-        {/* atman */}
-        {/* looper */}
-        <div ref={textRef2} className="force looper height100">
-          <img
-            src={process.env.PUBLIC_URL + "/img/main/forceBg.png"}
-            alt=""
-            className="force_bg"
-          />
-          <div
-            className={`wrap ${
-              scrollPosition2 >= 0 && scrollPosition2 < 350 ? "scroll01" : ""
-            } ${
-              scrollPosition2 >= 350 && scrollPosition2 < 700 ? "scroll02" : ""
-            } ${scrollPosition2 >= 700 ? "scroll03" : ""}`}
-          >
-            <div className="text_wrap">
-              <SVG />
+
+            <div
+              className={`peopleImg ${scrollPercent > 7 ? "active" : ""}
+             ${scrollPercent > 33 ? "remove" : ""}`}
+            >
+              <img
+                src={process.env.PUBLIC_URL + "/img/main/atman_people.png"}
+                alt=""
+                className="people"
+              />
+              <img
+                src={
+                  process.env.PUBLIC_URL + "/img/main/atman_people_shadow.png"
+                }
+                alt=""
+                className="shadow"
+              />
+            </div>
+            <div
+              className={`storyWrap ${scrollPercent > 7 ? "active" : ""}
+            ${scrollPercent < 33 ? "remove" : ""}
+            `}
+            >
+              <div className="circle"></div>
+              <div className="lineWrap">
+                <div className="line"></div>
+              </div>
+              <div className="line2">
+                <img
+                  src={process.env.PUBLIC_URL + "/img/main/story_line.png"}
+                  alt=""
+                />
+              </div>
+              <div className="box cf">
+                <img
+                  src={process.env.PUBLIC_URL + "/img/main/storyBox_line.png"}
+                  alt=""
+                  className="storyLine right"
+                />
+                <h3>
+                  <img
+                    src={process.env.PUBLIC_URL + "/img/main/atman_logo.png"}
+                    alt="ATMAN"
+                  />
+                </h3>
+                <div className="txt">
+                  <h4>
+                    <span>Alter</span>
+                  </h4>
+                  <p>
+                    <span>
+                      A force that adapts to rapidly changing environments.
+                      <br />
+                      They live hiding what they <br />
+                      really like and want to do, conscious of society’s gaze
+                    </span>
+                  </p>
+                </div>
+                <div className="txt">
+                  <h4>
+                    <span>Story</span>
+                  </h4>
+                  <p>
+                    <span>
+                      Belong to the government and dream of a stable and high
+                      position,
+                      <br />
+                      There are also Atmans who go over to the power of loopers
+                      for
+                      <br />
+                      their own freedom and dreams.
+                    </span>
+                  </p>
+                </div>
+                <img
+                  src={process.env.PUBLIC_URL + "/img/main/storyBox_line.png"}
+                  alt=""
+                  className="storyLine"
+                />
+              </div>
             </div>
           </div>
-          <div className="peopleImg">
-            <img
-              src={process.env.PUBLIC_URL + "/img/main/looper_people.png"}
-              alt=""
-            />
-          </div>
+          {/* atman */}
         </div>
-        <div className="peopleStory looper">
-          <h2>
-            <img
-              src={process.env.PUBLIC_URL + "/img/main/looper_logo.png"}
-              alt=""
-            />
-            <img
-              src={process.env.PUBLIC_URL + "/img/main/looper_logo_line.png"}
-              alt=""
-              className="line"
-            />
-          </h2>
-          <ul className="cf">
-            <li>
-              <h3>Alter</h3>
-              <p>
-                A force that values their own freedom and instincts.
-                <br />
-                They may be self-centered, but they have a personality that is
-                not resistant
-                <br />
-                to doing things that they believe are valuable and enjoyable.
-              </p>
-            </li>
-            <li>
-              <h3>Story</h3>
-              <p>
-                They dream of their own paradise, free from government control.
-                <br />
-                Self-centered, but living together with like-minded people,
-                <br />
-                It is a rebel force of the government, and also a force of
-                opposition to Hide.
-              </p>
-            </li>
-          </ul>
-        </div>
-        {/* looper */}
-        {/* hide */}
-        <div ref={textRef3} className="force hide height100">
-          <img
-            src={process.env.PUBLIC_URL + "/img/main/forceBg.png"}
-            alt=""
-            className="force_bg"
-          />
-          <div
-            className={`wrap ${
-              scrollPosition3 >= 0 && scrollPosition3 < 350 ? "scroll01" : ""
-            } ${
-              scrollPosition3 >= 350 && scrollPosition3 < 700 ? "scroll02" : ""
-            } ${scrollPosition3 >= 700 ? "scroll03" : ""}`}
-          >
-            <div className="text_wrap">
-              <SVG />
-            </div>
-          </div>
-          <div className="peopleImg">
-            <img
-              src={process.env.PUBLIC_URL + "/img/main/hide_people.png"}
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="peopleStory hide">
-          <h2>
-            <img
-              src={process.env.PUBLIC_URL + "/img/main/hide_logo.png"}
-              alt=""
-            />
-            <img
-              src={process.env.PUBLIC_URL + "/img/main/hide_logo_line.png"}
-              alt=""
-              className="line"
-            />
-          </h2>
-          <ul className="cf">
-            <li>
-              <h3>Alter</h3>
-              <p>
-                A machine-wrapped force.
-                <br />
-                Develop your weaknesses more strongly.
-                <br />
-                He is law-abiding, tough, and cold-hearted.
-              </p>
-            </li>
-            <li>
-              <h3>Story</h3>
-              <p>
-                If you enlist in the government’s army, You can make yourself
-                stronger
-                <br />
-                with a better machine, and you can achieve a rise in status.
-                <br />
-                Its main task is to wipe out criminals who do not comply with
-                control.
-              </p>
-            </li>
-          </ul>
-        </div>
-        {/* hide */}
       </div>
       {/* section03 */}
 
