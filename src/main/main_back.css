@@ -1,0 +1,427 @@
+body {
+  background: #191919;
+}
+img {
+  width: 100%;
+}
+
+.sec_inner {
+  width: 80%;
+  margin: 0 auto;
+}
+.height100 {
+  height: 100vh;
+  position: relative;
+}
+.height100 .sec_inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#main {
+  width: 100%;
+  height: auto;
+  /* background: url(./img/test.jpg) no-repeat; */
+  background-size: 100% auto;
+  background-position: top;
+  position: relative;
+  overflow: hidden;
+}
+#main .blackBg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, #191919 100%);
+  z-index: 5;
+}
+
+#main .img_wrap img {
+  position: absolute;
+  object-fit: contain;
+}
+#main .img_wrap .wall {
+  /* width: 100%; */
+  width: 110;
+  top: 0;
+  left: 0;
+}
+#main .img_wrap .move_img {
+  width: 120%;
+  left: -10%;
+  top: -10%;
+}
+
+#section01 {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 5;
+}
+#section01 .logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* width: 906.6px; */
+  width: 47.22vw;
+  object-fit: contain;
+}
+#section02 {
+  padding: 250px 0 90px;
+  position: relative;
+  z-index: 6;
+}
+#section02 p {
+  font-size: 37px;
+  color: #d6d6d6;
+  text-align: center;
+  line-height: 1.46;
+  font-weight: 100;
+  letter-spacing: -1.11px;
+}
+#section02 p span {
+  font-weight: 500;
+}
+
+#section03 {
+  /* padding: 200px 0;
+    background: #191919; */
+  margin-top: 200px;
+}
+#section03 .force {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /* backgro
+    und: red; */
+}
+#section03 .force.looper,
+#section03 .force.hide {
+  margin-top: 170px;
+}
+#section03 .force .force_bg {
+  width: 80%;
+  position: absolute;
+  /* top: 50%; */
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#section03 .text_wrap {
+  width: 100%;
+  position: absolute;
+  top: 51%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#section03 .atman .text_wrap text {
+  fill: transparent;
+  stroke: #c05c9f;
+}
+#section03 .atman .scroll01 .text_wrap text.t25,
+#section03 .atman .scroll01 .text_wrap text.t20,
+#section03 .atman .scroll01 .text_wrap text.t24 {
+  fill: #c05c9f;
+  stroke: none;
+}
+#section03 .atman .scroll02 .text_wrap text.t22,
+#section03 .atman .scroll02 .text_wrap text.t26,
+#section03 .atman .scroll02 .text_wrap text.t21 {
+  fill: #c05c9f;
+  stroke: none;
+}
+#section03 .atman .scroll03 .text_wrap text.t19,
+#section03 .atman .scroll03 .text_wrap text.t23,
+#section03 .atman .scroll03 .text_wrap text.t27 {
+  fill: #c05c9f;
+  stroke: none;
+}
+
+#section03 .looper .text_wrap text {
+  fill: transparent;
+  stroke: #78e58f;
+}
+#section03 .looper .scroll01 .text_wrap text.t25,
+#section03 .looper .scroll01 .text_wrap text.t20,
+#section03 .looper .scroll01 .text_wrap text.t24 {
+  fill: #78e58f;
+  stroke: none;
+}
+#section03 .looper .scroll02 .text_wrap text.t22,
+#section03 .looper .scroll02 .text_wrap text.t26,
+#section03 .looper .scroll02 .text_wrap text.t21 {
+  fill: #78e58f;
+  stroke: none;
+}
+#section03 .looper .scroll03 .text_wrap text.t19,
+#section03 .looper .scroll03 .text_wrap text.t23,
+#section03 .looper .scroll03 .text_wrap text.t27 {
+  fill: #78e58f;
+  stroke: none;
+}
+
+#section03 .hide .text_wrap text {
+  fill: transparent;
+  stroke: #e879ef;
+}
+#section03 .hide .scroll01 .text_wrap text.t25,
+#section03 .hide .scroll01 .text_wrap text.t20,
+#section03 .hide .scroll01 .text_wrap text.t24 {
+  fill: #e879ef;
+  stroke: none;
+}
+#section03 .hide .scroll02 .text_wrap text.t22,
+#section03 .hide .scroll02 .text_wrap text.t26,
+#section03 .hide .scroll02 .text_wrap text.t21 {
+  fill: #e879ef;
+  stroke: none;
+}
+#section03 .hide .scroll03 .text_wrap text.t19,
+#section03 .hide .scroll03 .text_wrap text.t23,
+#section03 .hide .scroll03 .text_wrap text.t27 {
+  fill: #e879ef;
+  stroke: none;
+}
+
+.wrap {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+#section03 .peopleImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#section03 .atman .peopleImg {
+  width: 685px;
+  top: 49%;
+}
+#section03 .looper .peopleImg {
+  width: 681px;
+}
+#section03 .hide .peopleImg {
+  width: 740px;
+  top: 49%;
+}
+#section03 .peopleStory {
+  margin-top: 155px;
+}
+#section03 .peopleStory .line {
+  margin: 16px 0 34px;
+}
+#section03 .peopleStory li {
+  float: left;
+  width: 50%;
+}
+#section03 .peopleStory li:first-child {
+  text-align: right;
+  padding-right: 26px;
+  position: relative;
+}
+#section03 .peopleStory li:first-child::before {
+  content: "";
+  width: 1px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#section03 .peopleStory li:last-child {
+  text-align: left;
+  padding-left: 26px;
+}
+#section03 .peopleStory li h3 {
+  font-size: 25px;
+  color: #727272;
+  font-weight: 900;
+  letter-spacing: -0.75px;
+}
+#section03 .peopleStory li p {
+  font-size: 23px;
+  color: #727272;
+  font-weight: 100;
+  letter-spacing: -0.69px;
+}
+#section03 .peopleStory.atman h2 {
+  width: 342px;
+  text-align: center;
+  margin: 0 auto;
+}
+#section03 .peopleStory.looper h2 {
+  width: 396px;
+  text-align: center;
+  margin: 0 auto;
+}
+#section03 .peopleStory.hide h2 {
+  width: 256px;
+  text-align: center;
+  margin: 0 auto;
+}
+/* 
+  #section04 {
+    padding-top: 320px;
+    
+  } */
+
+#section04 .text_wrap {
+  text-align: right;
+}
+#section04 .num {
+  font-family: "Bai Jamjuree", sans-serif;
+  font-size: 258px;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.59;
+  letter-spacing: -7.74px;
+  color: #fff;
+}
+#section04 h3 {
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 1.58;
+  letter-spacing: -0.78px;
+  color: #afafaf;
+}
+#section04 p {
+  font-size: 26px;
+  font-weight: 100;
+  color: #727272;
+  line-height: 1.58;
+  letter-spacing: -0.78px;
+  display: inline-block;
+  position: relative;
+  margin-top: 36px;
+  padding-top: 36px;
+}
+#section04 p span {
+  font-weight: bold;
+  color: #afafaf;
+}
+#section04 p::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #707070;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* #section05 ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  } */
+
+/* #section05 {
+    position: relative;
+    height: 100vh;
+  } */
+#section05::before {
+  content: "";
+  width: 100%;
+  height: 370px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(25, 25, 25, 0) -1%,
+    #191919 85%
+  );
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+#section05 ul li {
+  width: 23.5%;
+  float: left;
+  margin-right: 2%;
+}
+#section05 ul li:nth-child(1),
+#section05 ul li:nth-child(3) {
+  /* width: 24.8%; */
+  /* margin: 0; */
+  padding-top: 57px;
+}
+/* #section05 ul li:nth-child(2) {
+    width: 29.8%;
+  }
+  #section05 ul li:nth-child(3) {
+    width: 23.4%;
+  } */
+#section05 ul li:nth-child(4) {
+  margin: 0;
+}
+
+#section06 #roadmap {
+  width: 100%;
+  height: 300vh;
+
+  position: relative;
+}
+
+#section06 #roadmap .road_wrap {
+  width: 100%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+#section06 #roadmap .circle_wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* width: 500px;
+    height: 500px; */
+  width: 50%;
+  height: 50%;
+}
+#section06 #roadmap .circle_wrap svg {
+  width: 100%;
+  height: 100%;
+}
+#section06 #roadmap .circle_wrap .text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+}
+
+#section06 #roadmap .circle_wrap .text-container h2 {
+  font-family: "Bai Jamjuree", sans-serif;
+  color: #fff;
+  font-size: 146px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+#section06 #roadmap .circle_wrap .text-container p {
+  font-size: 19px;
+  font-weight: 100;
+  color: #727272;
+}
+
+#section07 {
+  padding-top: 340px;
+}
+#section07 .faq {
+  width: 50%;
+  float: right;
+  color: #fff;
+}
+#section07 .faq h2 {
+  font-family: "Bai Jamjuree", sans-serif;
+  font-size: 115px;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: -3.45px;
+  color: #fff;
+}
